@@ -10,20 +10,22 @@ namespace Application;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
+use Album\Controller\AlbumController;
+
 
 return [
     'router' => [
         'routes' => [
-            'home' => [
-                'type' => Literal::class,
-                'options' => [
-                    'route'    => '/',
-                    'defaults' => [
-                        'controller' => Controller\IndexController::class,
-                        'action'     => 'index',
-                    ],
-                ],
-            ],
+			'home' => [
+				'type' => \Zend\Router\Http\Literal::class,
+				'options' => [
+					'route'    => '/',
+					'defaults' => [
+						'controller' => AlbumController::class, // <-- change here
+						'action'     => 'index',
+					],
+				],
+			],
             'application' => [
                 'type'    => Segment::class,
                 'options' => [
