@@ -1,7 +1,7 @@
-1.Serwis internetowy kawiarni "Kawalerka"
-2.Serwis ma na celu udzielanie niezbędnych informacji potencjalnym i stalym klientom kawiarni.
-3.Przewidywane moduły to
-*katalog produktów;
-*edytowalne godziny otwarcia;
-*edytowalne pole "o nas";
-*mini-aktualności (3 notki informujące np. o przerwie w działalności).
+>1.Serwis internetowy kawiarni "Kawalerka"
+>2.Serwis ma na celu udzielanie niezbędnych informacji potencjalnym i stalym klientom kawiarni.
+>3.Przewidywane moduły to
+>*katalog produktów;
+>*edytowalne godziny otwarcia;
+>*edytowalne pole "o nas";
+>*mini-aktualności (3 notki informujące np. o przerwie w działalności).
