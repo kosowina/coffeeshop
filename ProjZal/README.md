@@ -8,7 +8,7 @@ Dokumentacja projektu Iwony Tryki na zajęcia programowania WWW na Uniwersytecie
 
 ### Opis projektu ###
 
-* Projekt a za zadanie zademonstrować nabyte w czasie zajęć umiejętności, a także zachęcić potencjalnych
+* Projekt ma za zadanie zademonstrować nabyte w czasie zajęć umiejętności, a także zachęcić potencjalnych
 * i stałych klientów do odwiedzania kawiarni i informowania ich o nowych ofertach i zmiennych godzinach i dniach otwarcia.
 
 ### Wyszczególnienie modułów ###
@@ -19,4 +19,4 @@ Dokumentacja projektu Iwony Tryki na zajęcia programowania WWW na Uniwersytecie
 * mini-aktualności (3 notki informujące np. o przerwie w działalności).
 
 ### Linki ###
-* localhost:8080/bb/ProjZal/public
+* localhost:8080/bb/ProjZal/public 
