@@ -1,10 +1,10 @@
 <?php
-namespace Album\Model;
+namespace Product\Model;
 
 use RuntimeException;
 use Zend\Db\TableGateway\TableGatewayInterface;
 
-class AlbumTable
+class ProductTable
 {
     private $tableGateway;
 
@@ -18,7 +18,7 @@ class AlbumTable
         return $this->tableGateway->select();
     }
 
-    public function getAlbum($id)
+    public function getProduct($id)
     {
         $id = (int) $id;
         $rowset = $this->tableGateway->select(['id' => $id]);
@@ -33,23 +33,23 @@ class AlbumTable
         return $row;
     }
 
-    public function saveAlbum(Album $album)
+    public function saveProduct(Product $product)
     {
         $data = [
-            'artist' => $album->artist,
-            'title'  => $album->title,
+            'brand' => $product->brand,
+            'name'  => $product->name,
         ];
 
-        $id = (int) $album->id;
+        $id = (int) $product->id;
 
         if ($id === 0) {
             $this->tableGateway->insert($data);
             return;
         }
 
-        if (! $this->getAlbum($id)) {
+        if (! $this->getProduct($id)) {
             throw new RuntimeException(sprintf(
-                'Cannot update album with identifier %d; does not exist',
+                'Cannot update product with identifier %d; does not exist',
                 $id
             ));
         }
@@ -57,7 +57,7 @@ class AlbumTable
         $this->tableGateway->update($data, ['id' => $id]);
     }
 
-    public function deleteAlbum($id)
+    public function deleteProduct($id)
     {
         $this->tableGateway->delete(['id' => (int) $id]);
     }
