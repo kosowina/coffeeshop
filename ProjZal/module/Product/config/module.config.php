@@ -1,9 +1,11 @@
 <?php
 namespace Product;
 
+use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
+    'controllers' => [
     'controllers' => [
         'factories' => [
             Controller\ProductController::class => InvokableFactory::class,
@@ -38,4 +40,5 @@ return [
 				'product' => __DIR__ . '/../view',
 			],
 		],
-	];
+	],
+];
