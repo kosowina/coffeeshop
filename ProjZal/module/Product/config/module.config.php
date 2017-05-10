@@ -2,15 +2,9 @@
 namespace Product;
 
 use Zend\Router\Http\Segment;
-use Zend\ServiceManager\Factory\InvokableFactory;
 
 return [
     'controllers' => [
-    'controllers' => [
-        'factories' => [
-            Controller\ProductController::class => InvokableFactory::class,
-        ],
-    ],
     'view_manager' => [
         'template_path_stack' => [
             'product' => __DIR__ . '/../view',

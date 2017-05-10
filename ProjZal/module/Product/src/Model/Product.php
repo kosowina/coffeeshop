@@ -12,5 +12,7 @@ class Product
         $this->id     = !empty($data['id']) ? $data['id'] : null;
         $this->brand = !empty($data['brand']) ? $data['brand'] : null;
         $this->name  = !empty($data['name']) ? $data['name'] : null;
+		$this->ptype  = !empty($data['ptype']) ? $data['ptype'] : null;
+
     }
 }

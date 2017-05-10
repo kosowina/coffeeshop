@@ -28,4 +28,16 @@ class Module implements ConfigProviderInterface
 				],
 			];
 		}
+	public function getControllerConfig()
+    {
+        return [
+            'factories' => [
+                Controller\ProductController::class => function($container) {
+                    return new Controller\ProductController(
+                        $container->get(Model\ProductTable::class)
+                    );
+                },
+            ],
+        ];
+    }
 }

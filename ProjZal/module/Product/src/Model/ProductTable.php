@@ -38,6 +38,7 @@ class ProductTable
         $data = [
             'brand' => $product->brand,
             'name'  => $product->name,
+			'ptype'  => $product->ptype,
         ];
 
         $id = (int) $product->id;
