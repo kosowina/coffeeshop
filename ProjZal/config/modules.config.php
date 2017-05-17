@@ -16,5 +16,5 @@ return [
     'Zend\Router',
     'Zend\Validator',
     'Application',
-	'Product',
+	'Product'
 ];

@@ -6,6 +6,7 @@ class Product
     public $id;
     public $brand;
     public $name;
+	public $ptype;
 
     public function exchangeArray(array $data)
     {
