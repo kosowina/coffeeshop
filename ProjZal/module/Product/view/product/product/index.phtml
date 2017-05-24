@@ -1,9 +1,9 @@
 <?php
 
-$name = 'My products';
-$this->headName($name);
+$title = 'My products';
+$this->headTitle($title);
 ?>
-<h1><?= $this->escapeHtml($name) ?></h1>
+<h1><?= $this->escapeHtml($title) ?></h1>
 <p>
     <a href="<?= $this->url('product', ['action' => 'add']) ?>">Add new product</a>
 </p>
