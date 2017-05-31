@@ -1,0 +1,50 @@
+<?php
+$title = 'Add new menu item';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<?php
+$menu = $form->get('name');
+$menu->setAttribute('class', 'form-control');
+$menu->setAttribute('placeholder', 'Menu name');
+
+$category = $form->get('category');
+$category->setAttribute('class', 'form-control');
+$category->setAttribute('placeholder', 'Brand');
+
+$price = $form->get('price');
+$price->setAttribute('class', 'form-control');
+$price->setAttribute('placeholder', 'Type');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('menu', ['action' => 'add']));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+<?php // Wrap the elements in divs marked as form groups, and render the
+      // label, element, and errors separately within ?>
+<div class="form-group">
+    <?= $this->formLabel($menu) ?>
+    <?= $this->formElement($menu) ?>
+    <?= $this->formElementErrors()->render($menu, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($category) ?>
+    <?= $this->formElement($category) ?>
+    <?= $this->formElementErrors()->render($category, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($price) ?>
+    <?= $this->formElement($price) ?>
+    <?= $this->formElementErrors()->render($category, ['class' => 'help-block']) ?>
+</div>
+
+<?php
+echo $this->formSubmit($submit);
+echo $this->formHidden($form->get('id'));
+echo $this->form()->closeTag();

@@ -1,0 +1,52 @@
+<?php
+$title = 'Edit menu item';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<?php
+$menu = $form->get('category');
+$menu->setAttribute('class', 'form-control');
+$menu->setAttribute('placeholder', 'Product category');
+
+$name = $form->get('name');
+$name->setAttribute('class', 'form-control');
+$name->setAttribute('placeholder', 'Artist');
+
+$price = $form->get('price');
+$price->setAttribute('class', 'form-control');
+$price->setAttribute('placeholder', 'Type');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('menu', [
+    'action' => 'edit',
+    'id'     => $id,
+]));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+<div class="form-group">
+    <?= $this->formLabel($menu) ?>
+    <?= $this->formElement($menu) ?>
+    <?= $this->formElementErrors()->render($menu, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($name) ?>
+    <?= $this->formElement($name) ?>
+    <?= $this->formElementErrors()->render($name, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($price) ?>
+    <?= $this->formElement($price) ?>
+    <?= $this->formElementErrors()->render($price, ['class' => 'help-block']) ?>
+</div>
+
+
+<?php
+echo $this->formSubmit($submit);
+echo $this->formHidden($form->get('id'));
+echo $this->form()->closeTag();

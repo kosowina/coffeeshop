@@ -4,3 +4,7 @@ INSERT INTO product (brand, name, ptype) VALUES ('Costa', 'Sweet Sugarcane', 'ka
 INSERT INTO product (brand, name, ptype) VALUES ('After Eight', 'Turtle','kawa smakowa');
 INSERT INTO product (brand, name, ptype) VALUES ('Kawalerka', 'Cynobrowa Czarna','kawa smakowa');
 INSERT INTO product (brand, name, ptype) VALUES ('Kawalerka', 'Latte Affogato','kawa smakowa');
+
+CREATE TABLE menu (id INTEGER PRIMARY KEY AUTOINCREMENT, category varchar(75) NOT NULL, name varchar(75) NOT NULL, price varchar(8) NOT NULL);
+INSERT INTO menu (category, name, price) VALUES ('cake', 'Blueberry Tart','$7');
+INSERT INTO menu (category, name, price) VALUES ('cocktail', 'Banana-Spinach', '$5');

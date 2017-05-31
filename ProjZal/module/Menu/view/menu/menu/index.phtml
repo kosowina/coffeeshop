@@ -1,0 +1,29 @@
+<?php
+
+$title = 'My menus';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('menu', ['action' => 'add']) ?>">Add new menu item</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Name</th>
+    <th>Category</th>
+	<th>Price</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($menus as $menu) : ?>
+    <tr>
+        <td><?= $this->escapeHtml($menu->name) ?></td>
+        <td><?= $this->escapeHtml($menu->category) ?></td>
+		<td><?= $this->escapeHtml($menu->price) ?></td>
+        <td>
+            <a href="<?= $this->url('menu', ['action' => 'edit', 'id' => $menu->id]) ?>">Edit</a>
+            <a href="<?= $this->url('menu', ['action' => 'delete', 'id' => $menu->id]) ?>">Delete</a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>

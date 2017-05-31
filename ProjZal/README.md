@@ -15,7 +15,9 @@ Dokumentacja projektu Iwony Tryki na zajęcia programowania WWW na Uniwersytecie
 * katalog produktów;
 * edytowalne godziny otwarcia;
 * edytowalne pole "o nas";
-* mini-aktualności (3 notki informujące np. o przerwie w działalności).
+* menu.
 
 ### Linki ###
 * localhost:8080/bb/ProjZal/public 
+* localhost:8080/bb/ProjZal/menu
+* localhost:8080/bb/ProjZal/product  
