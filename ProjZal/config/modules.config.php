@@ -17,5 +17,6 @@ return [
     'Zend\Validator',
     'Application',
 	'Product',
-	'Menu'
+	'Menu',
+	'Home'
 ];

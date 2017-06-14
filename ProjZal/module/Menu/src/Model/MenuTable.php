@@ -1,5 +1,5 @@
 <?php
-namespace Product\Model;
+namespace Menu\Model;
 
 use DomainException;
 use Zend\Filter\StringTrim;
@@ -12,7 +12,7 @@ use Zend\Validator\StringLength;
 use RuntimeException;
 use Zend\Db\TableGateway\TableGatewayInterface;
 
-class ProductTable
+class MenuTable
 {
     private $tableGateway;
 
@@ -26,7 +26,7 @@ class ProductTable
         return $this->tableGateway->select();
     }
 
-    public function getProduct($id)
+    public function getMenu($id)
     {
         $id = (int) $id;
         $rowset = $this->tableGateway->select(['id' => $id]);
@@ -41,24 +41,24 @@ class ProductTable
         return $row;
     }
 
-    public function saveProduct(Product $product)
+    public function saveMenu(Menu $menu)
     {
         $data = [
-            'brand' => $product->brand,
-            'name'  => $product->name,
-			'ptype'  => $product->ptype,
+            'category' => $menu->category,
+            'name'  => $menu->name,
+			'price'  => $menu->price,
         ];
 
-        $id = (int) $product->id;
+        $id = (int) $menu->id;
 
         if ($id === 0) {
             $this->tableGateway->insert($data);
             return;
         }
 
-        if (! $this->getProduct($id)) {
+        if (! $this->getMenu($id)) {
             throw new RuntimeException(sprintf(
-                'Cannot update product with identifier %d; does not exist',
+                'Cannot update menu with identifier %d; does not exist',
                 $id
             ));
         }
@@ -66,7 +66,7 @@ class ProductTable
         $this->tableGateway->update($data, ['id' => $id]);
     }
 
-    public function deleteProduct($id)
+    public function deleteMenu($id)
     {
         $this->tableGateway->delete(['id' => (int) $id]);
     }

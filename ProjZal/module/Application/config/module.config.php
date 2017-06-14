@@ -10,7 +10,7 @@ namespace Application;
 use Zend\Router\Http\Literal;
 use Zend\Router\Http\Segment;
 use Zend\ServiceManager\Factory\InvokableFactory;
-use Product\Controller\ProductController;
+use Home\Controller\HomeController;
 
 return [
     'router' => [
@@ -20,7 +20,7 @@ return [
                 'options' => [
                     'route'    => '/',
                     'defaults' => [
-                        'controller' => ProductController::class,
+                        'controller' => HomeController::class,
                         'action'     => 'index',
                     ],
                 ],
