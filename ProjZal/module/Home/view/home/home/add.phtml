@@ -1,0 +1,47 @@
+<?php
+$title = 'Add new home';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<?php
+
+$about = $form->get('about');
+$about->setAttribute('class', 'form-control');
+$about->setAttribute('placeholder', 'About');
+
+$open = $form->get('open');
+$open->setAttribute('class', 'form-control');
+$open->setAttribute('placeholder', 'Open');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('home', ['action' => 'add']));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+<?php // Wrap the elements in divs marked as form groups, and render the
+      // label, element, and errors separately within ?>
+<div class="form-group">
+    <?= $this->formLabel($home) ?>
+    <?= $this->formElement($home) ?>
+    <?= $this->formElementErrors()->render($home, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($about) ?>
+    <?= $this->formElement($about) ?>
+    <?= $this->formElementErrors()->render($about, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($open) ?>
+    <?= $this->formElement($open) ?>
+    <?= $this->formElementErrors()->render($about, ['class' => 'help-block']) ?>
+</div>
+
+<?php
+echo $this->formSubmit($submit);
+echo $this->formHidden($form->get('id'));
+echo $this->form()->closeTag();

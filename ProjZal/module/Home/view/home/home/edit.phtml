@@ -1,0 +1,48 @@
+<?php
+$title = 'Edit home';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<?php
+$home = $form->get('about');
+$home->setAttribute('class', 'form-control');
+$home->setAttribute('placeholder', 'Home about');
+
+$open = $form->get('open');
+$open->setAttribute('class', 'form-control');
+$open->setAttribute('placeholder', 'Open');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('home', [
+    'action' => 'edit',
+    'id'     => $id,
+]));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+<div class="form-group">
+    <?= $this->formLabel($home) ?>
+    <?= $this->formElement($home) ?>
+    <?= $this->formElementErrors()->render($home, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($about) ?>
+    <?= $this->formElement($about) ?>
+    <?= $this->formElementErrors()->render($about, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($open) ?>
+    <?= $this->formElement($open) ?>
+    <?= $this->formElementErrors()->render($open, ['class' => 'help-block']) ?>
+</div>
+
+
+<?php
+echo $this->formSubmit($submit);
+echo $this->formHidden($form->get('id'));
+echo $this->form()->closeTag();

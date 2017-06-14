@@ -1,0 +1,29 @@
+<?php
+
+$title = 'My homes';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<p>
+    <a href="<?= $this->url('home', ['action' => 'add']) ?>">Add new</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>Name</th>
+    <th>About</th>
+	<th>Open</th>
+    <th>&nbsp;</th>
+</tr>
+<?php foreach ($homes as $home) : ?>
+    <tr>
+        <td><?= $this->escapeHtml($home->name) ?></td>
+        <td><?= $this->escapeHtml($home->about) ?></td>
+		<td><?= $this->escapeHtml($home->open) ?></td>
+        <td>
+            <a href="<?= $this->url('home', ['action' => 'edit', 'id' => $home->id]) ?>">Edit</a>
+            <a href="<?= $this->url('home', ['action' => 'delete', 'id' => $home->id]) ?>">Delete</a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>
