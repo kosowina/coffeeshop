@@ -1,0 +1,57 @@
+<?php
+// module/Product/view/product/product/edit.phtml:
+
+$title = 'Edit item';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<div class="row col-sm-8">
+<hr/>
+<?php
+$product = $form->get('name');
+$product->setAttribute('class', 'form-control');
+$product->setAttribute('placeholder', 'Name products');
+
+$description = $form->get('description');
+$description->setAttribute('class', 'form-control');
+$description->setAttribute('placeholder', 'Description');
+
+$price = $form->get('price');
+$price->setAttribute('class', 'form-control');
+$price->setAttribute('placeholder', 'Price');
+
+$submit = $form->get('submit');
+$submit->setAttribute('class', 'btn btn-primary');
+
+$form->setAttribute('action', $this->url('product', [
+    'action' => 'edit',
+    'id'     => $id,
+]));
+$form->prepare();
+
+echo $this->form()->openTag($form);
+?>
+<div class="form-group">
+    <?= $this->formLabel($product) ?>
+    <?= $this->formElement($product) ?>
+    <?= $this->formElementErrors()->render($product, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($description) ?>
+    <?= $this->formElement($description) ?>
+    <?= $this->formElementErrors()->render($description, ['class' => 'help-block']) ?>
+</div>
+
+<div class="form-group">
+    <?= $this->formLabel($price) ?>
+    <?= $this->formElement($price) ?>
+    <?= $this->formElementErrors()->render($price, ['class' => 'help-block']) ?>
+</div>
+
+<?php
+echo $this->formSubmit($submit);
+echo $this->formHidden($form->get('id'));
+echo $this->form()->closeTag();
+?>
+</div>

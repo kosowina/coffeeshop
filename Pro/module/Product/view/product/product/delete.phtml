@@ -1,0 +1,24 @@
+<?php
+// module/Product/view/product/product/delete.phtml:
+
+$title = 'Usuwanie products';
+$url   = $this->url('product', ['action' => 'delete', 'id' => $id]);
+
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<div class="row col-sm-8">
+<hr/>
+<p>
+    Are you sure you want to delete
+    "<?= $this->escapeHtml($product->name) ?>" ?
+</p>
+
+<form action="<?= $url ?>" method="post">
+<div class="form-group">
+    <input type="hidden" name="id" value="<?= (int) $product->id ?>" />
+    <input type="submit" class="btn-lg btn-danger" name="del" value="Yes" />
+    <input type="submit" class="btn-lg btn-success" name="del" value="No" />
+</div>
+</form>
+</div>

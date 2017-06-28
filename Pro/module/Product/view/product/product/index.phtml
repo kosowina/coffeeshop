@@ -1,0 +1,35 @@
+<?php
+$title = 'Products';
+$this->headTitle($title);
+?>
+<h1><?= $this->escapeHtml($title) ?></h1>
+<hr/ class="row col-sm-8">
+<table class="table">
+<tr class="active">
+    <th>Name</th>
+    <th>Description</th>
+    <th class="text-center">Price</th>
+    <th></th>
+
+</tr>
+<?php foreach ($products as $product) : ?>
+    <tr>
+        <td><?= $this->escapeHtml($product->name) ?></td>
+        <td><?= $this->escapeHtml($product->description) ?></td>
+        <td class="text-center">$<?= $this->escapeHtml($product->price) ?></td>
+        <td class="text-center">
+            <a href="<?= $this->url('product', ['action' => 'edit', 'id' => $product->id]) ?>" class ="btn-sm btn-primary">
+                Edit
+            </a>
+            <a href="<?= $this->url('product', ['action' => 'delete', 'id' => $product->id]) ?>" class ="btn-sm btn-danger">
+                Delete
+            </a>
+        </td>
+    </tr>
+<?php endforeach; ?>
+</table>
+<p class="text-right">
+    <a href="<?= $this->url('product', ['action' => 'add']) ?>" class ="btn-sm btn-info">
+        Add another
+    </a>
+</p>

@@ -1,0 +1,2 @@
+CREATE TABLE menu (id INTEGER PRIMARY KEY AUTOINCREMENT, name varchar(100) NOT NULL, description varchar(500) NOT NULL, price DECIMAL(9,2) NOT NULL);
+CREATE TABLE product (id INTEGER PRIMARY KEY AUTOINCREMENT, name varchar(100) NOT NULL, description varchar(500) NOT NULL, price DECIMAL(9,2) NOT NULL);

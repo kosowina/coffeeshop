@@ -1,0 +1,57 @@
+<?= $this->doctype() ?>
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <?= $this->headTitle('Kawalerka')->setSeparator(' - ')->setAutoEscape(false) ?>
+
+        <?= $this->headMeta()
+            ->appendName('viewport', 'width=device-width, initial-scale=1.0')
+            ->appendHttpEquiv('X-UA-Compatible', 'IE=edge')
+        ?>
+
+        <!-- Le styles -->
+        <?= $this->headLink(['rel' => 'shortcut icon', 'type' => 'image/vnd.microsoft.icon', 'href' => $this->basePath() . '/img/ptak.png'])
+            ->prependStylesheet($this->basePath('css/style.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap-theme.min.css'))
+            ->prependStylesheet($this->basePath('css/bootstrap.min.css'))
+        ?>
+
+        <!-- Scripts -->
+        <?= $this->headScript()
+            ->prependFile($this->basePath('js/bootstrap.min.js'))
+            ->prependFile($this->basePath('js/jquery-3.1.0.min.js'))
+        ?>
+    </head>
+    <body>
+        <nav class="navbar navbar-fixed-top" role="navigation" style="background-color:white;">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                        <span class="icon-bar"><img src="<?= $this->basePath('img/menu-icon.png') ?>" height="28" alt="menu"/></span>
+                    </button>
+                    <a class="navbar-brand" href="<?= $this->url('home') ?>">
+                        <img src="<?= $this->basePath('img/ptak.png') ?>" height="28" alt="Kawalerka"/>&nbsp;
+                        <b class="text-info">Kawalerka</b>
+                    </a>
+                </div>
+                <div class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li><a href="<?= $this->url('menu') ?>">Menu</a></li>
+                        <li><a href="<?= $this->url('product') ?>">Products</a></li>
+                        <li><a href="<?= $this->url('howto') ?>">Howto</a></li>
+                        <li><a href="<?= $this->url('history') ?>">History</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <div class="container">
+            <?= $this->content ?>
+            <hr/ class="col-sm-8">
+            <footer>
+                <p class="col-sm-8">2017 &copy; Melondrama Studios</p>
+            </footer>
+        </div>
+        <?= $this->inlineScript() ?>
+    </body>
+</html>
